@@ -1,0 +1,28 @@
+{
+    "name": "books",
+    "description": "Books",
+    "keywords": ["cloud", "rest"],
+    "homepage": "https://github.com/UNMSM-UPG-FISI",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Efrain Bautista",
+            "email": "ebautistau@unmsm.edu.pe",
+            "homepage": "https://github.com/UNMSM-UPG-FISI"
+        }
+    ],
+    "require": {
+        "php": ">=7",
+        "slim/slim": "^3.1",
+        "slim/php-view": "^2.0",
+        "monolog/monolog": "^1.17"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "web/src/"
+        }
+    },
+    "config": {
+        "process-timeout" : 0
+    }
+}

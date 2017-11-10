@@ -1,0 +1,8 @@
+---
+applications:
+- name: books-unmsm-eb
+  memory: 128MB
+  instances: 2
+  buildpack: https://github.com/cloudfoundry/php-buildpack.git
+  env:
+    PHP_INI_SCAN_DIR: .bp-config/php/conf.d

@@ -1,14 +1,14 @@
 <?php
 // DIC configuration
 
-use Books\Infrastructure\BookFakeRepository;
-use Books\Application\BookApplicationService;
+use Companies\Infrastructure\CompanyFakeRepository;
+use Companies\Application\CompanyApplicationService;
 
 $container = $app->getContainer();
 
 // view renderer
 $container['renderer'] = function ($c) {
-    $settings = $c->get('settings')['renderer'];
+    $settings = $c->get('settings')['renderer'];    
     return new Slim\Views\PhpRenderer($settings['template_path']);
 };
 
@@ -21,12 +21,12 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-$container['book_fake_repository'] = function ($container) {
-    return new BookFakeRepository();
+$container['company_fake_repository'] = function ($container) {
+    return new CompanyFakeRepository();
 };
 
-$container['book_application_service'] = function ($container) {
-    return new BookApplicationService(
-        $container['book_fake_repository']
+$container['company_application_service'] = function ($container) {
+    return new CompanyApplicationService(
+        $container['company_fake_repository']
     );
 };

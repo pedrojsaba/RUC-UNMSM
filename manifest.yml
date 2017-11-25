@@ -1,6 +1,6 @@
 ---
 applications:
-- name: books-unmsm-eb
+- name: ruc-unmsm
   memory: 128MB
   instances: 2
   buildpack: https://github.com/cloudfoundry/php-buildpack.git

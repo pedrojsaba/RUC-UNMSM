@@ -1,5 +1,5 @@
 <?php
-namespace Books\Application;
+namespace Companies\Application;
 
 use \JsonSerializable;
 

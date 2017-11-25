@@ -29,5 +29,20 @@ class CompanyDto implements JsonSerializable {
     public function setPhone($phone) {
         $this->phone = $phone;
     }
+    
+     public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
+    }
+    
+     public function getPhone()
+    {
+        return $this->phone;
+    }
 
 }

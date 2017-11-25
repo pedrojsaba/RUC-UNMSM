@@ -12,7 +12,7 @@ class CompanyAssembler
         }
         $companyDto = new CompanyDto();
         $companyDto->setName($company->getName());
-        $companyDto->setAddress($company->getAddres());
+        $companyDto->setAddress($company->getAddress());
         $companyDto->setPhone($company->getPhone());
         return $companyDto;
     }

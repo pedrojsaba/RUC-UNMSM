@@ -1,6 +1,6 @@
 <?php
 
-use Companies\Application\CompanyResponseDto;
+use Companies\Application\CompanyDto;
 use Slim\Http\Request;
 use Slim\Http\Response;
 

@@ -1,28 +1,26 @@
 <?php
+
 namespace Companies\Infrastructure;
 
 use Companies\Domain\CompanyRepository;
 use Companies\Domain\Company;
 
 
-class CompanyFakeRepository implements CompanyRepository
-{
-    public function __construct()
-    {
+class CompanyFakeRepository implements CompanyRepository {
+
+    public function __construct() {
+        require_once '/home/vcap/app/web/src/Companies/Infrastructure/simple_html_dom.php';
     }
 
-    
-    public function getData($code){
-         $html = file_get_html(str_replace('%s', $code, 'http://www.razonsocialperu.com/empresa/detalle/%s'));
+    public function getData($code) {
+        $html = file_get_html(str_replace('%s', $code, 'http://www.razonsocialperu.com/empresa/detalle/%s'));
 
-        $name = $this->get_value($html, NAME_RUC);
-        $address = $this->get_value($html, ADDRESS_RUC);
-        $phone = $this->get_value($html, PHONE_RUC);
+        $name = $this->get_value($html, 'li[class=fa-id-badge] a');
+        $address = $this->get_value($html, 'li[class=fa-address-book-o] a');
+        $phone = $this->get_value($html, 'li[class=fa-phone-square] a');
 
-        return new Company($name,$address,$phone);
+        return new Company($name, $address, $phone);
     }
-    
-     
 
     public function get_value($html, $id) {
         $value = explode(": ", $html->find($id, 0)->plaintext);
@@ -32,4 +30,5 @@ class CompanyFakeRepository implements CompanyRepository
         }
         return $name;
     }
+
 }

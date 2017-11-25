@@ -5,11 +5,10 @@ namespace Companies\Infrastructure;
 use Companies\Domain\CompanyRepository;
 use Companies\Domain\Company;
 
-
 class CompanyFakeRepository implements CompanyRepository {
 
     public function __construct() {
-        require_once '/home/vcap/app/web/src/Companies/Infrastructure/simple_html_dom.php';
+        require_once getcwd() . '/src/Companies/Infrastructure/simple_html_dom.php';
     }
 
     public function getData($code) {
